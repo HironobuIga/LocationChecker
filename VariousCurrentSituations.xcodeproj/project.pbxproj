@@ -13,6 +13,7 @@
 		1EC9434320FE4AFB0032071A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EC9434220FE4AFB0032071A /* Assets.xcassets */; };
 		1EC9434620FE4AFB0032071A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EC9434420FE4AFB0032071A /* LaunchScreen.storyboard */; };
 		1EC9435120FE4AFB0032071A /* VariousCurrentSituationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC9435020FE4AFB0032071A /* VariousCurrentSituationsTests.swift */; };
+		1EC9435D20FFA06B0032071A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EC9435C20FFA06B0032071A /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		1EC9434C20FE4AFB0032071A /* VariousCurrentSituationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VariousCurrentSituationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC9435020FE4AFB0032071A /* VariousCurrentSituationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariousCurrentSituationsTests.swift; sourceTree = "<group>"; };
 		1EC9435220FE4AFB0032071A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1EC9435C20FFA06B0032071A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EC9435D20FFA06B0032071A /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +65,7 @@
 				1EC9433A20FE4AF90032071A /* VariousCurrentSituations */,
 				1EC9434F20FE4AFB0032071A /* VariousCurrentSituationsTests */,
 				1EC9433920FE4AF90032071A /* Products */,
+				1EC9435B20FFA06B0032071A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +98,14 @@
 				1EC9435220FE4AFB0032071A /* Info.plist */,
 			);
 			path = VariousCurrentSituationsTests;
+			sourceTree = "<group>";
+		};
+		1EC9435B20FFA06B0032071A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1EC9435C20FFA06B0032071A /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
