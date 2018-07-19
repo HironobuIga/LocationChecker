@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedAlways, .authorizedWhenInUse:
             locationManager.requestLocation()
+            self.view.showLoading()
         case .denied, .notDetermined, .restricted:
             return
         }
@@ -54,6 +55,7 @@ private extension ViewController {
     private func getLocationName(location: CLLocation, completionHandler: @escaping (String?) -> Void) {
         let geoCoder = CLGeocoder()
         geoCoder.reverseGeocodeLocation(location) { (landmarks, error) in
+            self.view.hideLoading()
             if let error = error {
                 print(error.localizedDescription)
                 return
@@ -83,7 +85,9 @@ extension ViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        self.view.hideLoading()
         guard let location = locations.first else { return }
+        self.view.showLoading()
         getLocationName(location: location) { [weak self] locationName in
             guard let `self` = self else { return }
             self.locationName = locationName
