@@ -61,6 +61,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E554454210362F300FC8C59 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1E5544552103630500FC8C59 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				1EC9433D20FE4AF90032071A /* ViewController.swift */,
+				1EC9433F20FE4AF90032071A /* Main.storyboard */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		1E5544562103632F00FC8C59 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				1EC9434220FE4AFB0032071A /* Assets.xcassets */,
+				1EC9434420FE4AFB0032071A /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		1E5544572103634500FC8C59 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				1EC9434720FE4AFB0032071A /* Info.plist */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
 		1EC9432F20FE4AF90032071A = {
 			isa = PBXGroup;
 			children = (
@@ -83,14 +116,12 @@
 		1EC9433A20FE4AF90032071A /* VariousCurrentSituations */ = {
 			isa = PBXGroup;
 			children = (
-				1EC9435E2100CE980032071A /* Protocol */,
 				1EC9433B20FE4AF90032071A /* AppDelegate.swift */,
-				1EC9435F2100CEB50032071A /* ViewLoadable.swift */,
-				1EC9433D20FE4AF90032071A /* ViewController.swift */,
-				1EC9433F20FE4AF90032071A /* Main.storyboard */,
-				1EC9434220FE4AFB0032071A /* Assets.xcassets */,
-				1EC9434420FE4AFB0032071A /* LaunchScreen.storyboard */,
-				1EC9434720FE4AFB0032071A /* Info.plist */,
+				1EC9435E2100CE980032071A /* Protocol */,
+				1E5544552103630500FC8C59 /* Screen */,
+				1E554454210362F300FC8C59 /* Model */,
+				1E5544572103634500FC8C59 /* Supporting files */,
+				1E5544562103632F00FC8C59 /* Resource */,
 			);
 			path = VariousCurrentSituations;
 			sourceTree = "<group>";
@@ -115,6 +146,7 @@
 		1EC9435E2100CE980032071A /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				1EC9435F2100CEB50032071A /* ViewLoadable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
