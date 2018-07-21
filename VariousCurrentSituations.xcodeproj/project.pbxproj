@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E55445921037A7400FC8C59 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E55445821037A7400FC8C59 /* ViewModel.swift */; };
+		1E55445B21037AF100FC8C59 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E55445A21037AF100FC8C59 /* LocationManager.swift */; };
+		1E55445D21037B2400FC8C59 /* GeoCoderRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E55445C21037B2400FC8C59 /* GeoCoderRequester.swift */; };
 		1EC9433C20FE4AF90032071A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC9433B20FE4AF90032071A /* AppDelegate.swift */; };
 		1EC9433E20FE4AF90032071A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC9433D20FE4AF90032071A /* ViewController.swift */; };
 		1EC9434120FE4AF90032071A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EC9433F20FE4AF90032071A /* Main.storyboard */; };
@@ -28,6 +31,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E55445821037A7400FC8C59 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		1E55445A21037AF100FC8C59 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		1E55445C21037B2400FC8C59 /* GeoCoderRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCoderRequester.swift; sourceTree = "<group>"; };
 		1EC9433820FE4AF90032071A /* VariousCurrentSituations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VariousCurrentSituations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC9433B20FE4AF90032071A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EC9433D20FE4AF90032071A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +70,8 @@
 		1E554454210362F300FC8C59 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1E55445A21037AF100FC8C59 /* LocationManager.swift */,
+				1E55445C21037B2400FC8C59 /* GeoCoderRequester.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -72,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				1EC9433D20FE4AF90032071A /* ViewController.swift */,
+				1E55445821037A7400FC8C59 /* ViewModel.swift */,
 				1EC9433F20FE4AF90032071A /* Main.storyboard */,
 			);
 			path = Screen;
@@ -253,7 +262,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EC9433E20FE4AF90032071A /* ViewController.swift in Sources */,
+				1E55445D21037B2400FC8C59 /* GeoCoderRequester.swift in Sources */,
 				1EC9433C20FE4AF90032071A /* AppDelegate.swift in Sources */,
+				1E55445B21037AF100FC8C59 /* LocationManager.swift in Sources */,
+				1E55445921037A7400FC8C59 /* ViewModel.swift in Sources */,
 				1EC943602100CEB50032071A /* ViewLoadable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
