@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E55445921037A7400FC8C59 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E55445821037A7400FC8C59 /* ViewModel.swift */; };
+		1E55445921037A7400FC8C59 /* CurrentLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E55445821037A7400FC8C59 /* CurrentLocationViewModel.swift */; };
 		1E55445D21037B2400FC8C59 /* GeoCoderRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E55445C21037B2400FC8C59 /* GeoCoderRequester.swift */; };
 		1E55445F2104B5DB00FC8C59 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1EC9434720FE4AFB0032071A /* Info.plist */; };
 		1EC9433C20FE4AF90032071A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC9433B20FE4AF90032071A /* AppDelegate.swift */; };
@@ -31,7 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1E55445821037A7400FC8C59 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		1E55445821037A7400FC8C59 /* CurrentLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewModel.swift; sourceTree = "<group>"; };
 		1E55445C21037B2400FC8C59 /* GeoCoderRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCoderRequester.swift; sourceTree = "<group>"; };
 		1EC9433820FE4AF90032071A /* VariousCurrentSituations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VariousCurrentSituations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC9433B20FE4AF90032071A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 			children = (
 				1EC9433D20FE4AF90032071A /* CurrentLocationViewController.swift */,
 				1EC9433F20FE4AF90032071A /* CurrentLocationViewController.storyboard */,
-				1E55445821037A7400FC8C59 /* ViewModel.swift */,
+				1E55445821037A7400FC8C59 /* CurrentLocationViewModel.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -263,7 +263,7 @@
 				1EC9433E20FE4AF90032071A /* CurrentLocationViewController.swift in Sources */,
 				1E55445D21037B2400FC8C59 /* GeoCoderRequester.swift in Sources */,
 				1EC9433C20FE4AF90032071A /* AppDelegate.swift in Sources */,
-				1E55445921037A7400FC8C59 /* ViewModel.swift in Sources */,
+				1E55445921037A7400FC8C59 /* CurrentLocationViewModel.swift in Sources */,
 				1EC943602100CEB50032071A /* ViewLoadable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

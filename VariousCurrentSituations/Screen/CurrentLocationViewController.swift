@@ -21,16 +21,13 @@ final class CurrentLocationViewController: UIViewController {
     
     @IBAction private func updateButtonTapped(_ sender: UIButton) {
         switch CLLocationManager.authorizationStatus() {
-        case .authorizedAlways, .authorizedWhenInUse:
-            locationManager.requestLocation()
-        case .denied, .notDetermined, .restricted:
-            return
+        case .authorizedAlways, .authorizedWhenInUse: viewModel.fetchLocationAndLocationName()
+        case .denied, .notDetermined, .restricted: return
         }
     }
     
     // MARK: - Property
-    let viewModel = ViewModel()
-    var locationManager: CLLocationManager!
+    let viewModel = CurrentLocationViewModel()
     var locationName: String? {
         didSet {
             locationMameLabel.text = locationName // Labelの更新
@@ -40,9 +37,6 @@ final class CurrentLocationViewController: UIViewController {
     // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager = CLLocationManager()
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.delegate = self
         
         viewModel.didChangeState = { [weak self] state in
             guard let `self` = self else { return }
@@ -62,29 +56,5 @@ final class CurrentLocationViewController: UIViewController {
                 self.present(alertController, animated: true, completion: nil)
             }
         }
-    }
-}
-
-// MARK: - Private Method
-private extension CurrentLocationViewController {
-}
-
-// MARK: - CLLocationManagerDelegate
-extension CurrentLocationViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        switch status {
-        case .authorizedAlways, .authorizedWhenInUse: break // 許可済み
-        case .denied, .restricted: break // 許可していない
-        case .notDetermined: locationManager.requestWhenInUseAuthorization()
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else { return }
-        viewModel.fetchLocationName(location)
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error.localizedDescription)
     }
 }
