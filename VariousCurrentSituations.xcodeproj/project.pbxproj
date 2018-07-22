@@ -206,7 +206,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
-				ORGANIZATIONNAME = "伊賀裕展";
+				ORGANIZATIONNAME = iganin;
 				TargetAttributes = {
 					1EC9433720FE4AF90032071A = {
 						CreatedOnToolsVersion = 9.4.1;
