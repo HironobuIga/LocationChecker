@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-final class ViewController: UIViewController {
+final class CurrentLocationViewController: UIViewController {
     // MARK: - IBOutlet
     @IBOutlet private weak var locationMameLabel: UILabel!
     @IBOutlet private weak var updateButton: UIButton! {
@@ -41,8 +41,8 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager = CLLocationManager()
-        locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
         
         viewModel.didChangeState = { [weak self] state in
             guard let `self` = self else { return }
@@ -66,17 +66,16 @@ final class ViewController: UIViewController {
 }
 
 // MARK: - Private Method
-private extension ViewController {
+private extension CurrentLocationViewController {
 }
 
 // MARK: - CLLocationManagerDelegate
-extension ViewController: CLLocationManagerDelegate {
+extension CurrentLocationViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .authorizedAlways, .authorizedWhenInUse: break // 許可済み
         case .denied, .restricted: break // 許可していない
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
+        case .notDetermined: locationManager.requestWhenInUseAuthorization()
         }
     }
     
