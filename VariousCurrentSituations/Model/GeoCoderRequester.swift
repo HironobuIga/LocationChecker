@@ -40,7 +40,7 @@ class GeoCoderRequester {
                     return nil
                 }
             }).joined(separator: ",")
-            self?.state = .success(result: string)
+            self?.state = .success(result: string ?? "" )
         }
     }
 }

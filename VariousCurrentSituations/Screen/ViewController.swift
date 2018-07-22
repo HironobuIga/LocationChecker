@@ -12,14 +12,14 @@ import CoreLocation
 class ViewController: UIViewController {
     // MARK: - IBOutlet
     @IBOutlet private weak var locationMameLabel: UILabel!
-    
-    @IBOutlet weak var updateButton: UIButton! {
+    @IBOutlet private weak var updateButton: UIButton! {
         didSet {
             updateButton.clipsToBounds = true
             updateButton.layer.cornerRadius = 4.0
         }
     }
-    @IBAction func updateButtonTapped(_ sender: UIButton) {
+    
+    @IBAction private func updateButtonTapped(_ sender: UIButton) {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedAlways, .authorizedWhenInUse:
             locationManager.requestLocation()
@@ -30,11 +30,11 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Property
+    let viewModel = ViewModel()
     var locationManager: CLLocationManager!
     var locationName: String? {
         didSet {
-            // Labelの更新
-            locationMameLabel.text = locationName
+            locationMameLabel.text = locationName // Labelの更新
         }
     }
     
@@ -44,10 +44,26 @@ class ViewController: UIViewController {
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+        
+        viewModel.didChangeState = { [weak self] state in
+            guard let `self` = self else { return }
+            switch state {
+            case .none: break
+            case .loading: break // loadingの表示
+            case .success(let string):
+                // loadingの非表示
+                self.locationName = string
+            case .failure(_):
+                // loadingの非表示
+                let title = "エラー"
+                let message = "位置情報の取得に失敗しました"
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(ok)
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
     }
-
-    // MARK: - Method
-
 }
 
 // MARK: - Private Method
