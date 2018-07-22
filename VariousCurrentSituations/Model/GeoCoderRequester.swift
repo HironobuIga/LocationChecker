@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-class GeoCoderRequester {
+final class GeoCoderRequester {
     
     enum State {
         case none
@@ -17,6 +17,8 @@ class GeoCoderRequester {
         case success(result: String)
         case failure(error: Error?)
     }
+    
+    // MARK: - Property
     var didChangeState: ((State) -> Void)?
     private var state: State = .none {
         didSet {
@@ -24,6 +26,7 @@ class GeoCoderRequester {
         }
     }
     
+    // MARK: - Method
     func getLocationInformations(location: CLLocation) {
         state = .loading
         let geoCoder = CLGeocoder()

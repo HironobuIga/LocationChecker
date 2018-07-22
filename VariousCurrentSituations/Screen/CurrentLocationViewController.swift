@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 
 final class CurrentLocationViewController: UIViewController {
+    
     // MARK: - IBOutlet
     @IBOutlet private weak var locationMameLabel: UILabel!
     @IBOutlet private weak var updateButton: UIButton! {

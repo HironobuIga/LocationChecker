@@ -37,7 +37,7 @@ final class CurrentLocationViewModel: NSObject {
         locationManager.delegate = self
     }
     
-    // MARK: - Function
+    // MARK: - Method
     func fetchLocationAndLocationName() {
         state = .loading
         locationManager.requestLocation()
@@ -45,6 +45,7 @@ final class CurrentLocationViewModel: NSObject {
     
 }
 
+// MARK: - Private Method
 private extension CurrentLocationViewModel {
     private func fetchLocationName(_ location: CLLocation?) {
         guard let location = location else { return }
@@ -52,6 +53,7 @@ private extension CurrentLocationViewModel {
     }
 }
 
+// MARK: - CLLocationManagerDelegate
 extension CurrentLocationViewModel: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
