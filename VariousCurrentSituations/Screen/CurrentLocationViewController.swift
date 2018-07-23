@@ -43,12 +43,13 @@ final class CurrentLocationViewController: UIViewController {
             guard let `self` = self else { return }
             switch state {
             case .none: break
-            case .loading: break // loadingの表示
+            case .loading:
+                self.view.showLoading()
             case .success(let string):
-                // loadingの非表示
+                self.view.hideLoading()
                 self.locationName = string
             case .failure(_):
-                // loadingの非表示
+                self.view.hideLoading()
                 let title = "エラー"
                 let message = "位置情報の取得に失敗しました"
                 let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)

@@ -16,7 +16,10 @@ final class CurrentLocationViewModel: NSObject {
     // MARK: - Property
     private var state: State = .none {
         didSet {
-            didChangeState?(state)
+            DispatchQueue.main.async { [weak self] in
+                guard let `self` = self else { return }
+                self.didChangeState?(self.state)
+            }
         }
     }
     private let geoCoderRequester = GeoCoderRequester()
