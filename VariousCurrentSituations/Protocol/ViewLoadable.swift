@@ -17,11 +17,12 @@ extension UIView: Loadable {
     var loadingViewTag: Int { return 9999999 }
     
     func showLoading() {
+        self.isUserInteractionEnabled = false
+        
         let overLayView = UIView(frame: self.frame)
         overLayView.backgroundColor = UIColor.black
         overLayView.alpha = 0.4
         overLayView.tag = loadingViewTag
-        overLayView.isUserInteractionEnabled = false
         self.addSubview(overLayView)
         
         let indicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
@@ -32,6 +33,8 @@ extension UIView: Loadable {
     }
     
     func hideLoading() {
+        self.isUserInteractionEnabled = true
+        
         if let overLayView = self.viewWithTag(loadingViewTag) {
             overLayView.removeFromSuperview()
         }
