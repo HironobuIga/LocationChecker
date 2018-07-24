@@ -17,7 +17,7 @@
 		1EC9434620FE4AFB0032071A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EC9434420FE4AFB0032071A /* LaunchScreen.storyboard */; };
 		1EC9435120FE4AFB0032071A /* VariousCurrentSituationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC9435020FE4AFB0032071A /* VariousCurrentSituationsTests.swift */; };
 		1EC9435D20FFA06B0032071A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EC9435C20FFA06B0032071A /* CoreLocation.framework */; };
-		1EC943602100CEB50032071A /* ViewLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC9435F2100CEB50032071A /* ViewLoadable.swift */; };
+		1EC943602100CEB50032071A /* UIView+LoadingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC9435F2100CEB50032071A /* UIView+LoadingExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,7 @@
 		1EC9435020FE4AFB0032071A /* VariousCurrentSituationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariousCurrentSituationsTests.swift; sourceTree = "<group>"; };
 		1EC9435220FE4AFB0032071A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EC9435C20FFA06B0032071A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		1EC9435F2100CEB50032071A /* ViewLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLoadable.swift; sourceTree = "<group>"; };
+		1EC9435F2100CEB50032071A /* UIView+LoadingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LoadingExtension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				1EC9433B20FE4AF90032071A /* AppDelegate.swift */,
-				1EC9435E2100CE980032071A /* Protocol */,
+				1EC9435E2100CE980032071A /* Extension */,
 				1E5544552103630500FC8C59 /* Screen */,
 				1E554454210362F300FC8C59 /* Model */,
 				1E5544572103634500FC8C59 /* Supporting files */,
@@ -150,12 +150,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1EC9435E2100CE980032071A /* Protocol */ = {
+		1EC9435E2100CE980032071A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				1EC9435F2100CEB50032071A /* ViewLoadable.swift */,
+				1EC9435F2100CEB50032071A /* UIView+LoadingExtension.swift */,
 			);
-			path = Protocol;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,7 +264,7 @@
 				1E55445D21037B2400FC8C59 /* GeoCoderRequester.swift in Sources */,
 				1EC9433C20FE4AF90032071A /* AppDelegate.swift in Sources */,
 				1E55445921037A7400FC8C59 /* CurrentLocationViewModel.swift in Sources */,
-				1EC943602100CEB50032071A /* ViewLoadable.swift in Sources */,
+				1EC943602100CEB50032071A /* UIView+LoadingExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
