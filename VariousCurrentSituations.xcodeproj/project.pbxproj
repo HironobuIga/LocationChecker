@@ -10,6 +10,9 @@
 		1E55445921037A7400FC8C59 /* CurrentLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E55445821037A7400FC8C59 /* CurrentLocationViewModel.swift */; };
 		1E55445D21037B2400FC8C59 /* GeoCoderRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E55445C21037B2400FC8C59 /* GeoCoderRequester.swift */; };
 		1E55445F2104B5DB00FC8C59 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1EC9434720FE4AFB0032071A /* Info.plist */; };
+		1EAE969221079048009FB673 /* AddressInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAE969121079048009FB673 /* AddressInfoView.swift */; };
+		1EAE96942107909B009FB673 /* AddressInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EAE96932107909B009FB673 /* AddressInfoView.xib */; };
+		1EAE969721079203009FB673 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAE969621079203009FB673 /* NibLoadable.swift */; };
 		1EC9433C20FE4AF90032071A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC9433B20FE4AF90032071A /* AppDelegate.swift */; };
 		1EC9433E20FE4AF90032071A /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC9433D20FE4AF90032071A /* CurrentLocationViewController.swift */; };
 		1EC9434120FE4AF90032071A /* CurrentLocationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EC9433F20FE4AF90032071A /* CurrentLocationViewController.storyboard */; };
@@ -33,6 +36,9 @@
 /* Begin PBXFileReference section */
 		1E55445821037A7400FC8C59 /* CurrentLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewModel.swift; sourceTree = "<group>"; };
 		1E55445C21037B2400FC8C59 /* GeoCoderRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCoderRequester.swift; sourceTree = "<group>"; };
+		1EAE969121079048009FB673 /* AddressInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressInfoView.swift; sourceTree = "<group>"; };
+		1EAE96932107909B009FB673 /* AddressInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressInfoView.xib; sourceTree = "<group>"; };
+		1EAE969621079203009FB673 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		1EC9433820FE4AF90032071A /* VariousCurrentSituations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VariousCurrentSituations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC9433B20FE4AF90032071A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EC9433D20FE4AF90032071A /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +83,7 @@
 		1E5544552103630500FC8C59 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				1EAE96902107902E009FB673 /* View */,
 				1EC9433D20FE4AF90032071A /* CurrentLocationViewController.swift */,
 				1EC9433F20FE4AF90032071A /* CurrentLocationViewController.storyboard */,
 				1E55445821037A7400FC8C59 /* CurrentLocationViewModel.swift */,
@@ -99,6 +106,23 @@
 				1EC9434720FE4AFB0032071A /* Info.plist */,
 			);
 			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		1EAE96902107902E009FB673 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1EAE969121079048009FB673 /* AddressInfoView.swift */,
+				1EAE96932107909B009FB673 /* AddressInfoView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1EAE9695210791EF009FB673 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				1EAE969621079203009FB673 /* NibLoadable.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		1EC9432F20FE4AF90032071A = {
@@ -124,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				1EC9433B20FE4AF90032071A /* AppDelegate.swift */,
+				1EAE9695210791EF009FB673 /* Protocol */,
 				1EC9435E2100CE980032071A /* Extension */,
 				1E5544552103630500FC8C59 /* Screen */,
 				1E554454210362F300FC8C59 /* Model */,
@@ -242,6 +267,7 @@
 				1E55445F2104B5DB00FC8C59 /* Info.plist in Resources */,
 				1EC9434620FE4AFB0032071A /* LaunchScreen.storyboard in Resources */,
 				1EC9434320FE4AFB0032071A /* Assets.xcassets in Resources */,
+				1EAE96942107909B009FB673 /* AddressInfoView.xib in Resources */,
 				1EC9434120FE4AF90032071A /* CurrentLocationViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +287,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EC9433E20FE4AF90032071A /* CurrentLocationViewController.swift in Sources */,
+				1EAE969221079048009FB673 /* AddressInfoView.swift in Sources */,
+				1EAE969721079203009FB673 /* NibLoadable.swift in Sources */,
 				1E55445D21037B2400FC8C59 /* GeoCoderRequester.swift in Sources */,
 				1EC9433C20FE4AF90032071A /* AppDelegate.swift in Sources */,
 				1E55445921037A7400FC8C59 /* CurrentLocationViewModel.swift in Sources */,

@@ -12,11 +12,12 @@ import CoreLocation
 final class CurrentLocationViewController: UIViewController {
     
     // MARK: - IBOutlet
-    @IBOutlet private weak var locationMameLabel: UILabel!
+    
+    @IBOutlet private weak var addressInfoBaseView: UIView!
     @IBOutlet private weak var updateButton: UIButton! {
         didSet {
             updateButton.clipsToBounds = true
-            updateButton.layer.cornerRadius = 4.0
+            updateButton.layer.cornerRadius = 16.0
         }
     }
     
@@ -29,16 +30,33 @@ final class CurrentLocationViewController: UIViewController {
     
     // MARK: - Property
     let viewModel = CurrentLocationViewModel()
+    let addressInfoView = AddressInfoView.instantiateFromNib()
     var locationName: String? {
         didSet {
-            locationMameLabel.text = locationName // Labelの更新
+            
         }
     }
     
     // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setUpView()
+        setUpObservable()
+    }
+}
+
+// MARK: - Private Method
+private extension CurrentLocationViewController {
+    func setUpView() {
+        addressInfoBaseView.addSubview(addressInfoView)
+        addressInfoView.translatesAutoresizingMaskIntoConstraints = false
+        addressInfoBaseView.topAnchor.constraint(equalTo: addressInfoView.topAnchor, constant: 0.0).isActive = true
+        addressInfoBaseView.leadingAnchor.constraint(equalTo: addressInfoView.leadingAnchor, constant: 0.0).isActive = true
+        addressInfoBaseView.trailingAnchor.constraint(equalTo: addressInfoView.trailingAnchor, constant: 0.0).isActive = true
+        addressInfoBaseView.bottomAnchor.constraint(equalTo: addressInfoView.bottomAnchor, constant: 0.0).isActive = true
+    }
+    
+    func setUpObservable() {
         viewModel.didChangeState = { [weak self] state in
             guard let `self` = self else { return }
             switch state {

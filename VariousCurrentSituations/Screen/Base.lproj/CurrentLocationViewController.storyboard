@@ -18,23 +18,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Dn-LO-AVM">
-                                <rect key="frame" x="62.666666666666657" y="391.66666666666669" width="249.99999999999997" height="28.666666666666686"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xUQ-Lk-SFR">
+                                <rect key="frame" x="50" y="88" width="275" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="0yJ-17-2Ew"/>
+                                    <constraint firstAttribute="height" constant="300" id="IMJ-cK-hdj"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNI-Qx-V6v">
-                                <rect key="frame" x="30" y="481" width="315" height="50"/>
+                                <rect key="frame" x="50" y="684" width="275" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="3CQ-Da-FSp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
-                                <state key="normal" title="Update">
+                                <state key="normal" title="更新">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -44,16 +42,17 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="PNI-Qx-V6v" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="0Zm-66-jVC"/>
-                            <constraint firstItem="PNI-Qx-V6v" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="100" id="Mzn-ps-U0a"/>
-                            <constraint firstItem="3Dn-LO-AVM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Pih-6R-Vad"/>
-                            <constraint firstItem="3Dn-LO-AVM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kFt-LF-7FE"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PNI-Qx-V6v" secondAttribute="trailing" constant="30" id="xrh-Z2-d3x"/>
+                            <constraint firstItem="PNI-Qx-V6v" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="0Zm-66-jVC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PNI-Qx-V6v" secondAttribute="bottom" constant="44" id="20i-oG-THx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xUQ-Lk-SFR" secondAttribute="trailing" constant="50" id="2Nt-Cr-G6C"/>
+                            <constraint firstItem="xUQ-Lk-SFR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="44" id="I9A-LJ-4YV"/>
+                            <constraint firstItem="xUQ-Lk-SFR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="l6A-46-sB2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PNI-Qx-V6v" secondAttribute="trailing" constant="50" id="xrh-Z2-d3x"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="locationMameLabel" destination="3Dn-LO-AVM" id="aCY-c0-PYA"/>
+                        <outlet property="addressInfoBaseView" destination="xUQ-Lk-SFR" id="32M-a8-WcJ"/>
                         <outlet property="updateButton" destination="PNI-Qx-V6v" id="aZ4-eV-JbN"/>
                     </connections>
                 </viewController>
