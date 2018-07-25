@@ -49,11 +49,7 @@ final class CurrentLocationViewController: UIViewController {
 private extension CurrentLocationViewController {
     func setUpView() {
         addressInfoBaseView.addSubview(addressInfoView)
-        addressInfoView.translatesAutoresizingMaskIntoConstraints = false
-        addressInfoBaseView.topAnchor.constraint(equalTo: addressInfoView.topAnchor, constant: 0.0).isActive = true
-        addressInfoBaseView.leadingAnchor.constraint(equalTo: addressInfoView.leadingAnchor, constant: 0.0).isActive = true
-        addressInfoBaseView.trailingAnchor.constraint(equalTo: addressInfoView.trailingAnchor, constant: 0.0).isActive = true
-        addressInfoBaseView.bottomAnchor.constraint(equalTo: addressInfoView.bottomAnchor, constant: 0.0).isActive = true
+        addressInfoView.edges(to: addressInfoBaseView)
     }
     
     func setUpObservable() {

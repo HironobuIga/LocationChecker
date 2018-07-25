@@ -50,6 +50,7 @@ extension UIView {
         isUserInteractionEnabled = false
         let overLayView = LoadingOverLayView(frame: frame, indicatorStyle: indicatorStyle)
         addSubview(overLayView)
+        overLayView.edges(to: self)
         overLayView.startAnimation()
     }
     
