@@ -10,7 +10,7 @@ import CoreLocation
 
 final class CurrentLocationViewModel: NSObject {
     enum State {
-        case none, loading, success(string: String), failure(error: Error?)
+        case none, loading, success(result: CLPlacemark?), failure(error: Error?)
     }
     
     // MARK: - Property
@@ -34,7 +34,7 @@ final class CurrentLocationViewModel: NSObject {
             switch state {
             case .none, .loading: break
             case .failure(let error): self.state = .failure(error: error)
-            case .success(let result): self.state = .success(string: result)
+            case .success(let result): self.state = .success(result: result)
             }
         }
         locationManager.delegate = self

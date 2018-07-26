@@ -14,7 +14,7 @@ final class GeoCoderRequester {
     enum State {
         case none
         case loading
-        case success(result: String)
+        case success(result: CLPlacemark?)
         case failure(error: Error?)
     }
     
@@ -35,15 +35,7 @@ final class GeoCoderRequester {
                 self?.state = .failure(error: error)
                 return
             }
-            
-            let string = landmarks?.first?.addressDictionary?.compactMap({ (dic) -> String? in
-                if let string = dic.value as? String {
-                    return string
-                } else {
-                    return nil
-                }
-            }).joined(separator: ",")
-            self?.state = .success(result: string ?? "" )
+            self?.state = .success(result: landmarks?.first)
         }
     }
 }

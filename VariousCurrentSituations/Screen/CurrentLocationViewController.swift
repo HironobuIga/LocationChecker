@@ -31,11 +31,6 @@ final class CurrentLocationViewController: UIViewController {
     // MARK: - Property
     let viewModel = CurrentLocationViewModel()
     let addressInfoView = AddressInfoView.instantiateFromNib()
-    var locationName: String? {
-        didSet {
-            
-        }
-    }
     
     // MARK: Life Cycle
     override func viewDidLoad() {
@@ -59,9 +54,9 @@ private extension CurrentLocationViewController {
             case .none: break
             case .loading:
                 self.view.showLoading()
-            case .success(let string):
+            case .success(let result):
                 self.view.hideLoading()
-                self.locationName = string
+                self.addressInfoView.placemark = result
             case .failure(_):
                 self.view.hideLoading()
                 let title = "エラー"

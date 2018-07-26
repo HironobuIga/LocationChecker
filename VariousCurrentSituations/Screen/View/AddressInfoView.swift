@@ -7,7 +7,14 @@
 //
 
 import UIKit
+import CoreLocation
 
 final class AddressInfoView: UIView, NibLoadable {
+    @IBOutlet private weak var addressNumberLabel: UILabel!
     
+    var placemark: CLPlacemark? {
+        didSet {
+            addressNumberLabel.text = placemark?.postalCode
+        }
+    }
 }
