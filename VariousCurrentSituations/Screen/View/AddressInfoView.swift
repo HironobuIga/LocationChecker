@@ -17,4 +17,12 @@ final class AddressInfoView: UIView, NibLoadable {
             addressNumberLabel.text = placemark?.postalCode
         }
     }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.layer.cornerRadius = 16.0
+        self.layer.borderColor = UIColor.gray.cgColor
+        self.layer.borderWidth = 1.0
+    }
 }
