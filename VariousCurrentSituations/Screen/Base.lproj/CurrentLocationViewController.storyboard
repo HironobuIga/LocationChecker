@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="-1351" y="89"/>
         </scene>
-        <!--Title-->
+        <!--Current Location View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CurrentLocationViewController" customModule="VariousCurrentSituations" customModuleProvider="target" sceneMemberID="viewController">
@@ -67,7 +68,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="x1V-ef-G0S"/>
+                    <navigationItem key="navigationItem" id="x1V-ef-G0S">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" style="plain" id="zVu-Cv-mV7"/>
+                            <barButtonItem title="現在地" id="rjB-eT-vkU"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="addressInfoBaseView" destination="xUQ-Lk-SFR" id="32M-a8-WcJ"/>
                         <outlet property="updateButton" destination="PNI-Qx-V6v" id="aZ4-eV-JbN"/>
