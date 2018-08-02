@@ -42,17 +42,17 @@
                                     <constraint firstAttribute="height" constant="300" id="IMJ-cK-hdj"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dLI-DF-iIx">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0.0" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dLI-DF-iIx">
                                 <rect key="frame" x="74.666666666666671" y="108" width="160.33333333333331" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c40-4D-nvi">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0.0" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c40-4D-nvi">
                                 <rect key="frame" x="75" y="153" width="160" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="緯度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0U4-lR-cDg">
                                 <rect key="frame" x="19.999999999999996" y="112.66666666666667" width="34.666666666666657" height="21.000000000000014"/>
@@ -105,11 +105,17 @@
                     <navigationItem key="navigationItem" id="x1V-ef-G0S">
                         <rightBarButtonItems>
                             <barButtonItem title="Item" style="plain" id="zVu-Cv-mV7"/>
-                            <barButtonItem title="現在地" id="rjB-eT-vkU"/>
+                            <barButtonItem title="現在地" id="rjB-eT-vkU">
+                                <connections>
+                                    <action selector="didTouchUpInsideCurrentPositionButton:" destination="BYZ-38-t0r" id="kli-QR-9su"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="addressInfoBaseView" destination="xUQ-Lk-SFR" id="32M-a8-WcJ"/>
+                        <outlet property="latitudeTextField" destination="dLI-DF-iIx" id="bNU-gY-dzp"/>
+                        <outlet property="longitudeTextField" destination="c40-4D-nvi" id="gma-I8-g2L"/>
                         <outlet property="updateButton" destination="PNI-Qx-V6v" id="aZ4-eV-JbN"/>
                     </connections>
                 </viewController>

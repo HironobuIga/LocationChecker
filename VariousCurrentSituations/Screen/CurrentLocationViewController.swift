@@ -21,12 +21,18 @@ final class CurrentLocationViewController: UIViewController {
         }
     }
     
+    @IBOutlet private weak var latitudeTextField: UITextField!
+    @IBOutlet private weak var longitudeTextField: UITextField!
+    
     @IBAction private func updateButtonTapped(_ sender: UIButton) {
-        switch CLLocationManager.authorizationStatus() {
-        case .authorizedAlways, .authorizedWhenInUse: viewModel.fetchLocationAndLocationName()
-        case .denied, .notDetermined, .restricted: return
-        }
     }
+    
+    @IBAction private func didTouchUpInsideCurrentPositionButton(_ sender: UIBarButtonItem) {
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedAlways, .authorizedWhenInUse: viewModel.fetchCurrentLocation()
+        case .denied, .notDetermined, .restricted: return
+    }
+    
     
     // MARK: - Property
     let viewModel = CurrentLocationViewModel()
@@ -48,6 +54,7 @@ private extension CurrentLocationViewController {
     }
     
     func setUpObservable() {
+        
         viewModel.didChangeState = { [weak self] state in
             guard let `self` = self else { return }
             switch state {

@@ -9,12 +9,12 @@
 import CoreLocation
 
 final class CurrentLocationViewModel: NSObject {
-    enum State {
-        case none, loading, success(result: CLPlacemark?), failure(error: Error?)
+    enum State<ObjectType> {
+        case none, loading, success(result: ObjectType?), failure(error: Error?)
     }
     
     // MARK: - Property
-    private var state: State = .none {
+    private var state: State<CLPlacemark> = .none {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 guard let `self` = self else { return }
@@ -22,13 +22,23 @@ final class CurrentLocationViewModel: NSObject {
             }
         }
     }
+    private var fetchLocationState: State<CLLocation> = .none {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                guard let `self` = self else { return }
+                self.didChangeFetchLocationState?(self.fetchLocationState)
+            }
+        }
+    }
     private let geoCoderRequester = GeoCoderRequester()
     private let locationManager = CLLocationManager()
-    var didChangeState: ((State) -> Void)?
+    var didChangeState: ((State<CLPlacemark>) -> Void)?
+    var didChangeFetchLocationState: ((State<CLLocation>) ->  Void)?
     
     // MARK: - Life Cycle
     override init() {
         super.init()
+        
         geoCoderRequester.didChangeState = { [weak self] state in
             guard let `self` = self else { return }
             switch state {
@@ -41,8 +51,13 @@ final class CurrentLocationViewModel: NSObject {
     }
     
     // MARK: - Method
-    func fetchLocationAndLocationName() {
-        state = .loading
+    private func fetchLocationName(_ location: CLLocation?) {
+        guard let location = location else { return }
+        geoCoderRequester.getLocationInformations(location: location)
+    }
+    
+    func fetchCurrentLocation() {
+        fetchLocationState = .loading
         locationManager.requestLocation()
     }
     
@@ -50,10 +65,7 @@ final class CurrentLocationViewModel: NSObject {
 
 // MARK: - Private Method
 private extension CurrentLocationViewModel {
-    private func fetchLocationName(_ location: CLLocation?) {
-        guard let location = location else { return }
-        geoCoderRequester.getLocationInformations(location: location)
-    }
+    
 }
 
 // MARK: - CLLocationManagerDelegate
@@ -67,12 +79,15 @@ extension CurrentLocationViewModel: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else { return }
-        fetchLocationName(location)
+        guard let location = locations.first else {
+            fetchLocationState = .failure(error: nil)
+            return
+        }
+        fetchLocationState = .success(result: location)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        state = .failure(error: error)
+        fetchLocationState = .failure(error: error)
         print(error.localizedDescription)
     }
 }
