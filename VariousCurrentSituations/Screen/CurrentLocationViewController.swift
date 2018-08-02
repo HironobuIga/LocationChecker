@@ -17,7 +17,7 @@ final class CurrentLocationViewController: UIViewController {
     @IBOutlet private weak var updateButton: UIButton! {
         didSet {
             updateButton.clipsToBounds = true
-            updateButton.layer.cornerRadius = 16.0
+            updateButton.layer.cornerRadius = 4.0
         }
     }
     
@@ -25,14 +25,15 @@ final class CurrentLocationViewController: UIViewController {
     @IBOutlet private weak var longitudeTextField: UITextField!
     
     @IBAction private func updateButtonTapped(_ sender: UIButton) {
+        viewModel.fetchLocationName(viewModel.location)
     }
     
     @IBAction private func didTouchUpInsideCurrentPositionButton(_ sender: UIBarButtonItem) {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedAlways, .authorizedWhenInUse: viewModel.fetchCurrentLocation()
         case .denied, .notDetermined, .restricted: return
+        }
     }
-    
     
     // MARK: - Property
     let viewModel = CurrentLocationViewModel()
@@ -54,6 +55,28 @@ private extension CurrentLocationViewController {
     }
     
     func setUpObservable() {
+        viewModel.didChangeFetchLocationState = { [weak self] state in
+            guard let `self` = self else { return }
+            switch state {
+            case .none: break
+            case .loading: self.navigationController?.view.showLoading()
+            case .success(let location):
+                self.navigationController?.view.hideLoading()
+                if let location = location {
+                    self.latitudeTextField.text = String(location.coordinate.latitude)
+                    self.longitudeTextField.text = String(location.coordinate.longitude)
+                }
+            case .failure(_):
+                self.navigationController?.view.hideLoading()
+                let title = "エラー"
+                let message = "位置情報の取得に失敗しました"
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(ok)
+                self.present(alertController, animated: true, completion: nil)
+            }
+            
+        }
         
         viewModel.didChangeState = { [weak self] state in
             guard let `self` = self else { return }
@@ -67,7 +90,7 @@ private extension CurrentLocationViewController {
             case .failure(_):
                 self.view.hideLoading()
                 let title = "エラー"
-                let message = "位置情報の取得に失敗しました"
+                let message = "位置名称の取得に失敗しました"
                 let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
                 let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alertController.addAction(ok)

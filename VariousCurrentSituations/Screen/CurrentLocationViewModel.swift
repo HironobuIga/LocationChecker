@@ -34,6 +34,7 @@ final class CurrentLocationViewModel: NSObject {
     private let locationManager = CLLocationManager()
     var didChangeState: ((State<CLPlacemark>) -> Void)?
     var didChangeFetchLocationState: ((State<CLLocation>) ->  Void)?
+    var location: CLLocation?
     
     // MARK: - Life Cycle
     override init() {
@@ -51,7 +52,7 @@ final class CurrentLocationViewModel: NSObject {
     }
     
     // MARK: - Method
-    private func fetchLocationName(_ location: CLLocation?) {
+    func fetchLocationName(_ location: CLLocation?) {
         guard let location = location else { return }
         geoCoderRequester.getLocationInformations(location: location)
     }
@@ -79,6 +80,7 @@ extension CurrentLocationViewModel: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        self.location = locations.first
         guard let location = locations.first else {
             fetchLocationState = .failure(error: nil)
             return
@@ -87,6 +89,7 @@ extension CurrentLocationViewModel: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        self.location = nil
         fetchLocationState = .failure(error: error)
         print(error.localizedDescription)
     }
