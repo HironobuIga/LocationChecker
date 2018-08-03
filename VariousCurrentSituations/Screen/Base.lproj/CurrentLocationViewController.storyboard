@@ -104,7 +104,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="x1V-ef-G0S">
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" style="plain" id="zVu-Cv-mV7"/>
+                            <barButtonItem style="plain" systemItem="action" id="zVu-Cv-mV7">
+                                <connections>
+                                    <action selector="didTouchUpInsideShareButton:" destination="BYZ-38-t0r" id="hxc-7Q-K0X"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="現在地" id="rjB-eT-vkU">
                                 <connections>
                                     <action selector="didTouchUpInsideCurrentPositionButton:" destination="BYZ-38-t0r" id="kli-QR-9su"/>

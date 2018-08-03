@@ -46,6 +46,11 @@ final class CurrentLocationViewController: UIViewController {
         }
     }
     
+    @IBAction func didTouchUpInsideShareButton(_ sender: UIBarButtonItem) {
+        let controller = UIActivityViewController(activityItems: [], applicationActivities: nil)
+        present(controller, animated: true)
+    }
+    
     // MARK: - Property
     let viewModel = CurrentLocationViewModel()
     let addressInfoView = AddressInfoView.instantiateFromNib()
