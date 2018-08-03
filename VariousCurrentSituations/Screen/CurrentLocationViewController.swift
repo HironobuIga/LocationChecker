@@ -25,7 +25,18 @@ final class CurrentLocationViewController: UIViewController {
     @IBOutlet private weak var longitudeTextField: UITextField!
     
     @IBAction private func updateButtonTapped(_ sender: UIButton) {
-        viewModel.fetchLocationName(viewModel.location)
+        guard let latitudeString = latitudeTextField.text,
+            let longitudeString = longitudeTextField.text,
+            let latitude = Double(latitudeString),
+        let longitude = Double(longitudeString) else {
+            let alert = UIAlertController(title: "エラー", message: "緯度・経度が入力されていません", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        let location = CLLocation(latitude: latitude, longitude: longitude)
+        viewModel.fetchLocationName(location)
     }
     
     @IBAction private func didTouchUpInsideCurrentPositionButton(_ sender: UIBarButtonItem) {

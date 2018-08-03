@@ -43,7 +43,8 @@ final class CurrentLocationViewModel: NSObject {
         geoCoderRequester.didChangeState = { [weak self] state in
             guard let `self` = self else { return }
             switch state {
-            case .none, .loading: break
+            case .none: break
+            case .loading: self.state = .loading
             case .failure(let error): self.state = .failure(error: error)
             case .success(let result): self.state = .success(result: result)
             }
