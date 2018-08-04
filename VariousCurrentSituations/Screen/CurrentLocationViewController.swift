@@ -66,8 +66,8 @@ final class CurrentLocationViewController: UIViewController {
 // MARK: - Private Method
 private extension CurrentLocationViewController {
     func setUpView() {
-        addressInfoBaseView.addSubview(addressInfoView)
-        addressInfoView.edges(to: addressInfoBaseView)
+//        addressInfoBaseView.addSubview(addressInfoView)
+//        addressInfoView.edges(to: addressInfoBaseView)
     }
     
     func setUpObservable() {
