@@ -24,6 +24,16 @@ final class CurrentLocationViewController: UIViewController {
     @IBOutlet private weak var latitudeTextField: UITextField!
     @IBOutlet private weak var longitudeTextField: UITextField!
     
+    @IBOutlet private weak var tableView: UITableView! {
+        didSet {
+            tableView.delegate = self
+            tableView.dataSource = self
+            tableView.estimatedRowHeight = 44.0
+            tableView.rowHeight = UITableViewAutomaticDimension
+        }
+    }
+    
+    
     @IBAction private func updateButtonTapped(_ sender: UIButton) {
         guard let latitudeString = latitudeTextField.text,
             let longitudeString = longitudeTextField.text,
@@ -102,7 +112,7 @@ private extension CurrentLocationViewController {
                 self.view.showLoading()
             case .success(let result):
                 self.view.hideLoading()
-                self.addressInfoView.placemark = result
+                self.tableView.reloadData()
             case .failure(_):
                 self.view.hideLoading()
                 let title = "エラー"
@@ -113,5 +123,27 @@ private extension CurrentLocationViewController {
                 self.present(alertController, animated: true, completion: nil)
             }
         }
+    }
+}
+
+extension CurrentLocationViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell =  UITableViewCell(style: .default, reuseIdentifier: "cell")
+        cell.textLabel?.text = "\(indexPath.row)"
+        return cell
+    }
+}
+
+extension CurrentLocationViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

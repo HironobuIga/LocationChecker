@@ -35,6 +35,7 @@ final class CurrentLocationViewModel: NSObject {
     var didChangeState: ((State<CLPlacemark>) -> Void)?
     var didChangeFetchLocationState: ((State<CLLocation>) ->  Void)?
     var location: CLLocation?
+    var placemarks = [CLPlacemark]()
     
     // MARK: - Life Cycle
     override init() {
@@ -46,7 +47,13 @@ final class CurrentLocationViewModel: NSObject {
             case .none: break
             case .loading: self.state = .loading
             case .failure(let error): self.state = .failure(error: error)
-            case .success(let result): self.state = .success(result: result)
+            case .success(let result):
+                if let result = result {
+                    self.placemarks.append(result)
+                    self.state = .success(result: result)
+                } else {
+                    self.state = .failure(error: nil)
+                }
             }
         }
         locationManager.delegate = self

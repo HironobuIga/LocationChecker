@@ -86,15 +86,23 @@
                                     <constraint firstAttribute="height" constant="1" id="hOB-0G-ixg"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jba-pF-jOJ">
+                                <rect key="frame" x="0.0" y="308" width="375" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="c40-4D-nvi" firstAttribute="leading" secondItem="3Wp-7c-uSh" secondAttribute="trailing" constant="20" id="1UE-aa-yG6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PNI-Qx-V6v" secondAttribute="trailing" constant="20" id="8ss-53-9Bx"/>
+                            <constraint firstAttribute="bottom" secondItem="jba-pF-jOJ" secondAttribute="bottom" id="9nm-kz-YFv"/>
+                            <constraint firstItem="jba-pF-jOJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="FRg-e1-9ou"/>
                             <constraint firstItem="PNI-Qx-V6v" firstAttribute="top" secondItem="c40-4D-nvi" secondAttribute="bottom" constant="20" id="JWQ-bi-c9D"/>
                             <constraint firstItem="FTP-AV-YV6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Jku-FX-wWk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jba-pF-jOJ" secondAttribute="trailing" id="LcR-Gk-bSx"/>
                             <constraint firstItem="3Wp-7c-uSh" firstAttribute="centerY" secondItem="c40-4D-nvi" secondAttribute="centerY" id="OKU-yY-lbs"/>
                             <constraint firstItem="0U4-lR-cDg" firstAttribute="centerY" secondItem="dLI-DF-iIx" secondAttribute="centerY" id="Okd-Sk-Bta"/>
+                            <constraint firstItem="jba-pF-jOJ" firstAttribute="top" secondItem="FTP-AV-YV6" secondAttribute="bottom" id="RE5-s1-f3J"/>
                             <constraint firstItem="c40-4D-nvi" firstAttribute="top" secondItem="dLI-DF-iIx" secondAttribute="bottom" constant="15" id="UHc-yI-EgP"/>
                             <constraint firstItem="dLI-DF-iIx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="UVu-Dg-7iT"/>
                             <constraint firstItem="0U4-lR-cDg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="XtH-8h-35Y"/>
@@ -125,6 +133,7 @@
                     <connections>
                         <outlet property="latitudeTextField" destination="dLI-DF-iIx" id="bNU-gY-dzp"/>
                         <outlet property="longitudeTextField" destination="c40-4D-nvi" id="gma-I8-g2L"/>
+                        <outlet property="tableView" destination="jba-pF-jOJ" id="guT-br-Wkl"/>
                         <outlet property="updateButton" destination="PNI-Qx-V6v" id="aZ4-eV-JbN"/>
                     </connections>
                 </viewController>
