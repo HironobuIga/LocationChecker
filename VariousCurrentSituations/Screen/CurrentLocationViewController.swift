@@ -63,7 +63,6 @@ final class CurrentLocationViewController: UIViewController {
     
     // MARK: - Property
     let viewModel = CurrentLocationViewModel()
-    let addressInfoView = AddressInfoView.instantiateFromNib()
     
     // MARK: Life Cycle
     override func viewDidLoad() {
@@ -110,7 +109,7 @@ private extension CurrentLocationViewController {
             case .none: break
             case .loading:
                 self.view.showLoading()
-            case .success(let result):
+            case .success(_):
                 self.view.hideLoading()
                 self.tableView.reloadData()
             case .failure(_):
@@ -132,12 +131,12 @@ extension CurrentLocationViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return viewModel.placemarks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  UITableViewCell(style: .default, reuseIdentifier: "cell")
-        cell.textLabel?.text = "\(indexPath.row)"
+        cell.textLabel?.text = viewModel.placemarks[indexPath.row].name
         return cell
     }
 }

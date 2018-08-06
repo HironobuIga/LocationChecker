@@ -118,7 +118,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="x1V-ef-G0S">
                         <rightBarButtonItems>
-                            <barButtonItem style="plain" systemItem="action" id="zVu-Cv-mV7">
+                            <barButtonItem systemItem="action" id="zVu-Cv-mV7">
                                 <connections>
                                     <action selector="didTouchUpInsideShareButton:" destination="BYZ-38-t0r" id="hxc-7Q-K0X"/>
                                 </connections>
