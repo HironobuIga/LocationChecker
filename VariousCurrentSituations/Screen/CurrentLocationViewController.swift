@@ -28,7 +28,8 @@ final class CurrentLocationViewController: UIViewController {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
-            tableView.estimatedRowHeight = 44.0
+            CurrentLocationTableViewCell.registerNibTo(tableView)
+            tableView.estimatedRowHeight = 88.0
             tableView.rowHeight = UITableViewAutomaticDimension
         }
     }
@@ -131,12 +132,12 @@ extension CurrentLocationViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.placemarks.count
+        return 10
+//        return viewModel.placemarks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell =  UITableViewCell(style: .default, reuseIdentifier: "cell")
-        cell.textLabel?.text = viewModel.placemarks[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: CurrentLocationTableViewCell.reuseIdentifier, for: indexPath) as! CurrentLocationTableViewCell
         return cell
     }
 }
