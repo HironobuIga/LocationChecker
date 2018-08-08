@@ -21,8 +21,27 @@ final class CurrentLocationViewController: UIViewController {
         }
     }
     
-    @IBOutlet private weak var latitudeTextField: UITextField!
-    @IBOutlet private weak var longitudeTextField: UITextField!
+    @IBOutlet private weak var latitudeTextField: UITextField! {
+        didSet {
+            let bar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.size.width, height: 44.0))
+            bar.barStyle = .default
+            let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+            let doneButton = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(didTouchUpInsideDoneButton(_:)))
+            bar.items = [spacer, doneButton]
+            latitudeTextField.inputAccessoryView = bar
+        }
+    }
+    
+    @IBOutlet private weak var longitudeTextField: UITextField! {
+        didSet {
+            let bar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.size.width, height: 44.0))
+            bar.barStyle = .default
+            let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+            let doneButton = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(didTouchUpInsideDoneButton(_:)))
+            bar.items = [spacer, doneButton]
+            longitudeTextField.inputAccessoryView = bar
+        }
+    }
     
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
@@ -124,15 +143,20 @@ private extension CurrentLocationViewController {
             }
         }
     }
+    
+    @objc func didTouchUpInsideDoneButton(_ sender: UIBarButtonItem) {
+        view.endEditing(true)
+    }
 }
 
+// MARK: - UITableViewDataSource
 extension CurrentLocationViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 5
 //        return viewModel.placemarks.count
     }
     
@@ -142,6 +166,7 @@ extension CurrentLocationViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension CurrentLocationViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

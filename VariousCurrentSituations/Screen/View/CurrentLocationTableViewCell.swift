@@ -10,16 +10,7 @@ import UIKit
 
 class CurrentLocationTableViewCell: UITableViewCell, NibLoadable, ViewReusable {
 
-    @IBOutlet private weak var baseView: UIView! {
-        didSet {
-            baseView.layer.cornerRadius = 6.0
-            baseView.layer.shadowColor = UIColor.black.cgColor
-            baseView.layer.shadowOffset = CGSize(width: baseView.frame.size.width, height: 10)
-            baseView.layer.shadowOpacity = 0.2
-            baseView.layer.shadowRadius = 4
-        }
-    }
-    
+    @IBOutlet private weak var baseView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,4 +20,12 @@ class CurrentLocationTableViewCell: UITableViewCell, NibLoadable, ViewReusable {
         super.setSelected(selected, animated: animated)
     }
 
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        baseView.layer.cornerRadius = 6.0
+        baseView.layer.shadowColor = UIColor.black.cgColor
+        baseView.layer.shadowOffset = CGSize(width: baseView.frame.size.width, height: 10)
+        baseView.layer.shadowOpacity = 0.2
+        baseView.layer.shadowRadius = 4
+    }
 }
