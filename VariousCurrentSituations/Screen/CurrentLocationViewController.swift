@@ -13,7 +13,6 @@ final class CurrentLocationViewController: UIViewController {
     
     // MARK: - IBOutlet
     
-    @IBOutlet private weak var addressInfoBaseView: UIView!
     @IBOutlet private weak var updateButton: UIButton! {
         didSet {
             updateButton.clipsToBounds = true
@@ -48,7 +47,7 @@ final class CurrentLocationViewController: UIViewController {
             tableView.delegate = self
             tableView.dataSource = self
             CurrentLocationTableViewCell.registerNibTo(tableView)
-            tableView.estimatedRowHeight = 88.0
+            tableView.estimatedRowHeight = UITableViewAutomaticDimension
             tableView.rowHeight = UITableViewAutomaticDimension
         }
     }
@@ -94,10 +93,7 @@ final class CurrentLocationViewController: UIViewController {
 
 // MARK: - Private Method
 private extension CurrentLocationViewController {
-    func setUpView() {
-//        addressInfoBaseView.addSubview(addressInfoView)
-//        addressInfoView.edges(to: addressInfoBaseView)
-    }
+    func setUpView() { }
     
     func setUpObservable() {
         viewModel.didChangeFetchLocationState = { [weak self] state in

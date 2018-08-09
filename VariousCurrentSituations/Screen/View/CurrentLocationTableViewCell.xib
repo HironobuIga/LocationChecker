@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,43 +11,42 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="88" id="fx8-0k-dBl" customClass="CurrentLocationTableViewCell" customModule="VariousCurrentSituations" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
-            <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fx8-0k-dBl" id="NEM-U7-FZu" customClass="CurrentLocationTableViewCell" customModule="VariousCurrentSituations" customModuleProvider="target">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="88.5"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CurrentLocationTableViewCell" customModule="VariousCurrentSituations" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="87.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tc6-oi-cON">
-                        <rect key="frame" x="20" y="10" width="335" height="68.5"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FN5-lN-JQ4">
+                        <rect key="frame" x="20" y="10" width="280" height="67.5"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spot" translatesAutoresizingMaskIntoConstraints="NO" id="dwP-wO-Oak">
-                                <rect key="frame" x="0.0" y="22.5" width="15" height="24"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spot" translatesAutoresizingMaskIntoConstraints="NO" id="bba-KO-tNO">
+                                <rect key="frame" x="5" y="22" width="15" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="15" id="LYW-Z7-fyf"/>
-                                    <constraint firstAttribute="height" constant="24" id="mBo-SR-Wnn"/>
+                                    <constraint firstAttribute="height" constant="24" id="9g0-We-vYb"/>
+                                    <constraint firstAttribute="width" constant="15" id="IfL-aN-J3m"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dwP-wO-Oak" firstAttribute="leading" secondItem="tc6-oi-cON" secondAttribute="leading" id="7Tp-FG-Sd3"/>
-                            <constraint firstAttribute="height" constant="68.5" id="K90-kE-h9C"/>
-                            <constraint firstItem="dwP-wO-Oak" firstAttribute="centerY" secondItem="tc6-oi-cON" secondAttribute="centerY" id="vEJ-GJ-4SW"/>
+                            <constraint firstItem="bba-KO-tNO" firstAttribute="leading" secondItem="FN5-lN-JQ4" secondAttribute="leading" constant="5" id="1qH-II-i9G"/>
+                            <constraint firstItem="bba-KO-tNO" firstAttribute="centerY" secondItem="FN5-lN-JQ4" secondAttribute="centerY" id="FmF-aS-qyu"/>
+                            <constraint firstAttribute="height" constant="67.5" id="oBl-hx-Aos"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="tc6-oi-cON" firstAttribute="leading" secondItem="NEM-U7-FZu" secondAttribute="leading" constant="20" id="E8E-Hh-8nG"/>
-                    <constraint firstAttribute="bottom" secondItem="tc6-oi-cON" secondAttribute="bottom" constant="10" id="a4O-kP-u8g"/>
-                    <constraint firstItem="tc6-oi-cON" firstAttribute="top" secondItem="NEM-U7-FZu" secondAttribute="top" constant="10" id="jQj-fe-nyV"/>
-                    <constraint firstAttribute="trailing" secondItem="tc6-oi-cON" secondAttribute="trailing" constant="20" id="qko-73-xXg"/>
+                    <constraint firstItem="FN5-lN-JQ4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="81T-1I-vhp"/>
+                    <constraint firstItem="FN5-lN-JQ4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="CVe-aZ-fd5"/>
+                    <constraint firstAttribute="trailing" secondItem="FN5-lN-JQ4" secondAttribute="trailing" constant="20" id="CcG-74-ZAk"/>
+                    <constraint firstAttribute="bottom" secondItem="FN5-lN-JQ4" secondAttribute="bottom" constant="10" id="nWC-Ve-UWk"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="baseView" destination="tc6-oi-cON" id="Z3F-wX-Sz9"/>
+                <outlet property="baseView" destination="FN5-lN-JQ4" id="XAH-mc-d7L"/>
             </connections>
-            <point key="canvasLocation" x="8.5" y="155.5"/>
         </tableViewCell>
     </objects>
     <resources>
