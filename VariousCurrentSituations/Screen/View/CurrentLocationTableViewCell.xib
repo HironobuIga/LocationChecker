@@ -23,6 +23,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spot" translatesAutoresizingMaskIntoConstraints="NO" id="bba-KO-tNO">
                                 <rect key="frame" x="5" y="22" width="15" height="24"/>
+                                <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="9g0-We-vYb"/>
                                     <constraint firstAttribute="width" constant="15" id="IfL-aN-J3m"/>
@@ -46,6 +47,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="baseView" destination="FN5-lN-JQ4" id="XAH-mc-d7L"/>
+                <outlet property="spotImageView" destination="bba-KO-tNO" id="m6O-rs-xE4"/>
             </connections>
         </tableViewCell>
     </objects>

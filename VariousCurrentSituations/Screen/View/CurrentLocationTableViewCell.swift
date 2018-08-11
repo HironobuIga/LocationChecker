@@ -9,6 +9,13 @@
 import UIKit
 
 class CurrentLocationTableViewCell: UITableViewCell, ViewReusable, NibLoadable {
+    
+    @IBOutlet private weak var spotImageView: UIImageView! {
+        didSet {
+            spotImageView.tintColor = .gray
+        }
+    }
+    
     @IBOutlet private weak var baseView: UIView!
     
     override func awakeFromNib() {
@@ -17,5 +24,18 @@ class CurrentLocationTableViewCell: UITableViewCell, ViewReusable, NibLoadable {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        baseView.layer.cornerRadius = 10.0
+        baseView.clipsToBounds = true
+        baseView.layer.shadowColor = UIColor.black.cgColor
+        baseView.layer.shadowOffset = .zero
+        baseView.layer.shadowOpacity = 0.3
+        baseView.layer.shadowRadius = 4.0
+        baseView.layer.shadowPath = UIBezierPath(rect: baseView.bounds).cgPath
+        baseView.layer.shouldRasterize = true;
+        baseView.layer.rasterizationScale = UIScreen.main.scale
     }
 }
