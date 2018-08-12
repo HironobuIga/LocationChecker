@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -118,18 +117,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="x1V-ef-G0S">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="action" id="zVu-Cv-mV7">
-                                <connections>
-                                    <action selector="didTouchUpInsideShareButton:" destination="BYZ-38-t0r" id="hxc-7Q-K0X"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="現在地" id="rjB-eT-vkU">
-                                <connections>
-                                    <action selector="didTouchUpInsideCurrentPositionButton:" destination="BYZ-38-t0r" id="kli-QR-9su"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="現在地" id="rjB-eT-vkU">
+                            <connections>
+                                <action selector="didTouchUpInsideCurrentPositionButton:" destination="BYZ-38-t0r" id="kli-QR-9su"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="latitudeTextField" destination="dLI-DF-iIx" id="bNU-gY-dzp"/>

@@ -29,9 +29,8 @@ class CurrentLocationTableViewCell: UITableViewCell, ViewReusable, NibLoadable {
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         baseView.layer.cornerRadius = 10.0
-        baseView.clipsToBounds = true
         baseView.layer.shadowColor = UIColor.black.cgColor
-        baseView.layer.shadowOffset = .zero
+        baseView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         baseView.layer.shadowOpacity = 0.3
         baseView.layer.shadowRadius = 4.0
         baseView.layer.shadowPath = UIBezierPath(rect: baseView.bounds).cgPath
