@@ -127,7 +127,6 @@
                 <outlet property="addressNameLabel" destination="Ojd-ct-j2t" id="6TN-Ez-J5W"/>
                 <outlet property="baseView" destination="FN5-lN-JQ4" id="XAH-mc-d7L"/>
                 <outlet property="postalCodeLabel" destination="b5g-vg-heI" id="2yX-K3-G1Y"/>
-                <outletCollection property="didTouchUpInsideShareButton" destination="F3U-uw-2DZ" id="J6n-FH-Hqo"/>
             </connections>
         </tableViewCell>
     </objects>
