@@ -12,21 +12,28 @@ import CoreLocation
 class CurrentLocationTableViewCell: UITableViewCell, ViewReusable, NibLoadable {
     
     // MARK: - IBOutlet
-    @IBOutlet private weak var spotImageView: UIImageView! {
-        didSet {
-            spotImageView.tintColor = .gray
-        }
+    @IBOutlet private weak var baseView: UIView!
+    @IBOutlet private weak var postalCodeLabel: UILabel!
+    @IBOutlet private weak var addressNameLabel: UILabel!
+    @IBAction private func didTouchUpInsideShareButton(_ sender: UIButton) {
+        // ActivityControllerへのつなぎ
+        didTouchUpInsideShareButton?()
     }
     
-    @IBOutlet private weak var baseView: UIView!
     
     // MARK: - Property
     var placeMark: CLPlacemark? {
         didSet {
-            postalCodeLabel.text = placeMark?.postalCode
+            guard let placeMark = placeMark else { return }
+            postalCodeLabel.text = placeMark.postalCode
+            var address = placeMark.administrativeArea ?? ""
+            address.append(placeMark.locality ?? "")
+            address.append(placeMark.name ?? "")
+            addressNameLabel.text = address
         }
     }
-    @IBOutlet private weak var postalCodeLabel: UILabel!
+    
+    var didTouchUpInsideShareButton: (() -> Void)?
     
     // MARK: - LifeCycle
     override func awakeFromNib() {

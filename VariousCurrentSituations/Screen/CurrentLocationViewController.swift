@@ -44,7 +44,6 @@ final class CurrentLocationViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
-            tableView.delegate = self
             tableView.dataSource = self
             CurrentLocationTableViewCell.registerNibTo(tableView)
             tableView.estimatedRowHeight = UITableViewAutomaticDimension
@@ -155,11 +154,4 @@ extension CurrentLocationViewController: UITableViewDataSource {
         cell.placeMark = viewModel.placemarks[indexPath.row]
         return cell
     }
-}
-
-// MARK: - UITableViewDelegate
-extension CurrentLocationViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//    }
 }
