@@ -34,6 +34,11 @@ class CurrentLocationTableViewCell: UITableViewCell, ViewReusable, NibLoadable {
     }
     
     var didTouchUpInsideShareButton: (() -> Void)?
+    var shareInformationString: String {
+        var shareInfoString = postalCodeLabel.text ?? ""
+        shareInfoString.append(addressNameLabel.text ?? "")
+        return shareInfoString
+    }
     
     // MARK: - LifeCycle
     override func awakeFromNib() {

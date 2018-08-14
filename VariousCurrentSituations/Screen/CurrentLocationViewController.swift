@@ -152,6 +152,11 @@ extension CurrentLocationViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CurrentLocationTableViewCell.reuseIdentifier, for: indexPath) as! CurrentLocationTableViewCell
         cell.placeMark = viewModel.placemarks[indexPath.row]
+        cell.didTouchUpInsideShareButton = { [weak self] in
+            let shareInfo = cell.shareInformationString
+            let controller = UIActivityViewController(activityItems: [shareInfo], applicationActivities: nil)
+            self?.present(controller, animated: true, completion: nil)
+        }
         return cell
     }
 }
