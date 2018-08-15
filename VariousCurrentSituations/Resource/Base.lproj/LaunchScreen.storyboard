@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,24 +18,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="いまどこ？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i56-IQ-fx0">
-                                <rect key="frame" x="47.333333333333343" y="373" width="281.33333333333326" height="67"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="56"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_image" translatesAutoresizingMaskIntoConstraints="NO" id="Mv3-kl-HcG">
+                                <rect key="frame" x="99" y="308" width="176" height="176"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="176" id="YMG-Mp-yL9"/>
+                                    <constraint firstAttribute="height" constant="176" id="fK6-7x-0nm"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Checker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i56-IQ-fx0">
+                                <rect key="frame" x="76.666666666666686" y="494" width="222" height="32"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="i56-IQ-fx0" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Lqg-jl-Ktx"/>
+                            <constraint firstItem="Mv3-kl-HcG" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="PRH-4F-qCv"/>
                             <constraint firstItem="i56-IQ-fx0" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bQB-re-xTy"/>
-                            <constraint firstItem="i56-IQ-fx0" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="eJC-WJ-SeW"/>
+                            <constraint firstItem="Mv3-kl-HcG" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-10" id="e1P-Qb-Fft"/>
+                            <constraint firstItem="i56-IQ-fx0" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="iZe-IU-JCp"/>
+                            <constraint firstItem="i56-IQ-fx0" firstAttribute="top" secondItem="Mv3-kl-HcG" secondAttribute="bottom" constant="10" id="wJa-uC-F8a"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.6305418719212"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="app_image" width="176" height="176"/>
+    </resources>
 </document>
