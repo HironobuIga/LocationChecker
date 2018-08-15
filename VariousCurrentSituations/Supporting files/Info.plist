@@ -24,8 +24,6 @@
 	<true/>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>現在地の取得のために位置情報を使用します。</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>現在地の取得のために位置情報を使用します。</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>現在地の取得のために位置情報を使用します。</string>
 	<key>UILaunchStoryboardName</key>
