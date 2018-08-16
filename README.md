@@ -1,5 +1,5 @@
 # Location Checker
-[MIT](https://img.shields.io/github/license/mashape/apistatus.svg)
+![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)
 
 位置情報から住所情報を取得し表示するアプリのソースコードリポジトリです。
 
